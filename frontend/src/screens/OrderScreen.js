@@ -4,11 +4,11 @@ function OrderScreen(props) {
 
     return (
         <div>
-            <section class="order">
+            <section className="order">
                 Orders
             </section>
 
-            <footer class="footer">
+            <footer className="footer">
                 Footer
             </footer>
         </div>

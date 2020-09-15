@@ -19,7 +19,7 @@ function ShopScreen(props) {
     return (
         loading ? <div>Loading...</div> : error ? <div>{error}</div> :
         <div>
-        <section class="shop">
+        <section className="shop">
             <ul className="products">
                 {
                     products.map(product => 
@@ -41,7 +41,7 @@ function ShopScreen(props) {
             </ul>
         </section>
 
-        <footer class="footer">
+        <footer className="footer">
             Footer
         </footer>
         </div>

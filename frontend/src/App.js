@@ -1,15 +1,22 @@
 import React from 'react';
 import {BrowserRouter, Route, Link} from "react-router-dom";
+import {useSelector} from "react-redux";
 import HomeScreen from "./screens/HomeScreen";
 import FAQScreen from "./screens/FAQScreen";
 import ShopScreen from "./screens/ShopScreen";
 import OrderScreen from "./screens/OrderScreen";
-import LoginScreen from "./screens/LoginScreen";
 import CartScreen from "./screens/CartScreen";
 import ProductScreen from "./screens/ProductScreen";
 import './App.css';
+import SigninScreen from './screens/SigninScreen';
+import RegisterScreen from "./screens/RegisterScreen";
 
 function App() {
+
+  const userSignin = useSelector((state) => state.userSignin);
+  const {userInfo} = userSignin;
+  console.log(userInfo);
+
   return (
     <BrowserRouter>
     <div className="site-container">
@@ -31,7 +38,10 @@ function App() {
               <Link to="/orders">My Orders</Link>
             </li>
             <li>
-              <Link to="/login">Log In</Link>
+            {
+                userInfo ? (<Link to="/profile">{userInfo.data.name}</Link>) :
+                (<Link to="/signin">Log In</Link>)
+              }
             </li>
             <li>
               <Link to="/cart">Cart</Link>
@@ -46,12 +56,13 @@ function App() {
     </nav>
 
     <main className="main">
+      <Route path="/signin" component={SigninScreen} />
+      <Route path="/register" component={RegisterScreen} />
       <Route path="/shop/product/:id" component={ProductScreen} />
       <Route path="/" exact={true} component={HomeScreen} />
       <Route path="/faq" exact={true} component={FAQScreen} />
       <Route path="/shop" exact={true} component={ShopScreen} />
       <Route path="/orders" exact={true} component={OrderScreen} />
-      <Route path="/login" exact={true} component={LoginScreen} />
       <Route path="/cart/:id?" component={CartScreen} />
     </main>
     </div>

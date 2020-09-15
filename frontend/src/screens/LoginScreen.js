@@ -4,11 +4,11 @@ function LoginScreen(props) {
 
     return (
         <div>
-            <section class="login">
+            <section className="login">
                 Login/Register
             </section>
 
-            <footer class="footer">
+            <footer className="footer">
                 Footer
             </footer>
         </div>

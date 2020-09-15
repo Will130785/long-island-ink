@@ -4,11 +4,11 @@ function FAQScreen(props) {
 
     return (
         <div>
-        <section class="faq">
+        <section className="faq">
             FAQ's
         </section>
 
-        <footer class="footer">
+        <footer className="footer">
             Footer
         </footer>
         </div>
